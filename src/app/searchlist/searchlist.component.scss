@@ -1,12 +1,24 @@
-
-
-.container {
-  padding-top: 50px;
-  padding-bottom: 10px;
-  color: #405065;
+.searchpage{
+  background-image: url("/assets/Polygon\ 1.svg");
+  background-size:contain;
+  background-position: bottom right; 
+  background-repeat: no-repeat;
+  overflow:hidden;
+  width: 100%;
+  height: 100vh;
+  background-color: #E7ECFD;
+  text-align: center;
+  
+  .head{
+    text-align: center;
+    padding: 50px;
+  }
+  .headbold{
+    font-weight: bold;
+  }
 }
-
 .search-hero {
+  display: flex;
   max-width: 50%;
   margin: auto;
   width: 100%;
@@ -14,4 +26,40 @@
 
 .form-control {
   box-shadow: 0 10px 40px 0 #B0C1D9;
+  height: 60px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.button{
+  background-image: linear-gradient(to right top, #6f5efb, #7856f3, #804deb, #8743e2, #8d39d9);
+  border: none;
+  color: white;
+  padding: 12px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.filter{
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+  margin-left: 20px;
+
+.filter_btn{
+  border: none;
+  color: rgb(157, 0, 248);
+  background-color: rgb(255, 255, 255);
+  padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 55px;
+  margin-left: 20px;
+  }
 }
