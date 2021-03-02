@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SearchServiceService} from '../services/search-service.service';
 import {EStatusCode} from '../services/constant';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-searchlist',
@@ -9,18 +10,33 @@ import {EStatusCode} from '../services/constant';
 })
 export class SearchlistComponent implements OnInit {
  businessList = [{businessName: '', category: '', description: ''}];
-  constructor(private searchServiceService: SearchServiceService) { }
+  searchForm: FormGroup;
 
-  ngOnInit(): void {
-    this.getBusinessList('');
+  constructor(private searchServiceService: SearchServiceService,
+              public formBuilder: FormBuilder) {
+    // form initialization
+    this.searchForm = this.formBuilder.group({
+      search: ['']
+    });
   }
 
-  getBusinessList(searchWord: string) {
-    this.searchServiceService.businessList(searchWord).subscribe((data: any) => {
-      if (data.statusCode === EStatusCode.OK) {
-        this.businessList = data.list;
-      }
-    });
+  ngOnInit(): void {
+  }
+
+  //get business list with search
+  getBusinessList(type: any) {
+    if (type) {
+      this.searchForm.value.search = type;
+    }
+    if (this.searchForm.value.search) {
+      this.searchServiceService.businessList(this.searchForm.value.search).subscribe((data: any) => {
+        if (data.statusCode === EStatusCode.OK) {
+          this.businessList = data.list;
+        } else {
+          this.businessList = [];
+        }
+      });
+    }
   }
 
 }

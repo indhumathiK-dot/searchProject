@@ -1,16 +1,19 @@
 <div class="searchpage">
   <h1 class="head">Find the answers to your questions on <br> <span>your assets and their taxation</span></h1>
+  <form [formGroup]="searchForm">
   <div class="search-hero">
-    <input class="form-control" type="text" name="search" autocomplete="off" placeholder="Start searching for a hero by id or name or country">
-    <button class="button">Search</button>
+    <input class="form-control" type="text" name="search" formControlName="search" autocomplete="off"
+           placeholder="Start searching for a hero by id or name or country" (keyup)="getBusinessList('')">
+    <button class="button" (click)="getBusinessList('')">Search</button>
   </div>
+  </form>
   <div class="filter">
-    <button class="filter_btn">Retirement</button>
-    <button class="filter_btn">Credits</button>
-    <button class="filter_btn">Diversitation</button>
-    <button class="filter_btn">Insurence</button>
-    <button class="filter_btn">Immovable</button>
-    <button class="filter_btn">Taxation</button>
+    <button class="filter_btn" (click)="getBusinessList('Retirement')">Retirement</button>
+    <button class="filter_btn" (click)="getBusinessList('Credits')">Credits</button>
+    <button class="filter_btn" (click)="getBusinessList('Diversitation')">Diversitation</button>
+    <button class="filter_btn" (click)="getBusinessList('Insurence')">Insurence</button>
+    <button class="filter_btn" (click)="getBusinessList('Immovable')">Immovable</button>
+    <button class="filter_btn" (click)="getBusinessList('Taxation')">Taxation</button>
   </div>
 
   <div>

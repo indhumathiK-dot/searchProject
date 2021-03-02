@@ -15,8 +15,9 @@ export class SearchServiceService {
   constructor(private http: HttpClient) { }
 
 
+  //get business list
   businessList(searchKey: string){
-    return this.http.get(API.SEARCH_LIST, httpOptions);
+    return this.http.get(API.SEARCH_LIST + '/' + searchKey, httpOptions);
   }
 
 }
