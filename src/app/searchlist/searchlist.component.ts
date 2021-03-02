@@ -9,9 +9,9 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./searchlist.component.scss']
 })
 export class SearchlistComponent implements OnInit {
- businessList: any = [];
- autoUpdate: any = [];
-  searchForm: FormGroup;
+  public businessList: any = [];
+  public autoUpdate: any = [];
+  public searchForm: FormGroup;
 
   constructor(private searchServiceService: SearchServiceService,
               public formBuilder: FormBuilder) {
@@ -25,16 +25,16 @@ export class SearchlistComponent implements OnInit {
     this.getlistforAutocomplete();
   }
 
+  //
   getlistforAutocomplete() {
     if (this.searchForm.value.search) {
       this.searchServiceService.businessList(this.searchForm.value.search).subscribe((data: any) => {
         if (data.statusCode === EStatusCode.OK) {
           this.autoUpdate = [];
-          var employeeIds = data.list.filter((list: { businessName: any; category: any; }) => {
-            list.businessName.toLowerCase().indexOf(this.searchForm.value.search) !== -1 ? this.autoUpdate.push(list.businessName) : '';
-            list.category.toLowerCase().indexOf(this.searchForm.value.search) !== -1 ? this.autoUpdate.push(list.category) : '';
-          } );
-          // this.autoUpdate = data.list;
+          data.list.filter((list: { businessName: any; category: any; }) => {
+            list.businessName.toLowerCase().indexOf(this.searchForm.value.search.toLowerCase()) !== -1 ? this.autoUpdate.push(list.businessName) : '';
+            list.category.toLowerCase().indexOf(this.searchForm.value.search.toLowerCase()) !== -1 ? this.autoUpdate.push(list.category) : '';
+          });
         } else {
           this.autoUpdate = [];
         }
@@ -48,7 +48,6 @@ export class SearchlistComponent implements OnInit {
       this.searchForm.patchValue({
         search: type
       });
-      // this.searchForm.value.search = type;
     }
     if (this.searchForm.value.search) {
       this.searchServiceService.businessList(this.searchForm.value.search).subscribe((data: any) => {

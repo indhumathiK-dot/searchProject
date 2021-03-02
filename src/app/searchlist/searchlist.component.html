@@ -3,8 +3,8 @@
   <form [formGroup]="searchForm">
   <div class="search-hero">
     <input class="form-control" type="text" name="search" formControlName="search" [matAutocomplete]="auto"
-           placeholder="Start searching for a hero by id or name or country" (keyup)="getlistforAutocomplete()">
-    <mat-autocomplete #auto="matAutocomplete">
+           placeholder='Try "Credits", "Tax balance" ' (keyup)="getlistforAutocomplete()">
+    <mat-autocomplete class="autocomplete-panel" #auto="matAutocomplete">
       <mat-option *ngFor="let option of autoUpdate" [value]="option">
         {{option}}
       </mat-option>
