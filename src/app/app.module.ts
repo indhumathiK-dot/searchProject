@@ -11,6 +11,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MatOptionModule} from '@angular/material/core';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatChipsModule,
     MatListModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatOptionModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

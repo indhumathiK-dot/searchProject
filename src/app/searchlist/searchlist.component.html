@@ -2,8 +2,13 @@
   <h1 class="head">Find the answers to your questions on <br> <span>your assets and their taxation</span></h1>
   <form [formGroup]="searchForm">
   <div class="search-hero">
-    <input class="form-control" type="text" name="search" formControlName="search" autocomplete="on"
-           placeholder="Start searching for a hero by id or name or country" (keyup)="getBusinessList('')">
+    <input class="form-control" type="text" name="search" formControlName="search" [matAutocomplete]="auto"
+           placeholder="Start searching for a hero by id or name or country" (keyup)="getlistforAutocomplete()">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of autoUpdate" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
     <button class="button" (click)="getBusinessList('')">Search</button>
   </div>
   </form>
@@ -11,7 +16,7 @@
     <button class="filter_btn" (click)="getBusinessList('Retirement')">Retirement</button>
     <button class="filter_btn" (click)="getBusinessList('Credits')">Credits</button>
     <button class="filter_btn" (click)="getBusinessList('Diversitation')">Diversitation</button>
-    <button class="filter_btn" (click)="getBusinessList('Insurence')">Insurence</button>
+    <button class="filter_btn" (click)="getBusinessList('Insurance')">Insurance</button>
     <button class="filter_btn" (click)="getBusinessList('Immovable')">Immovable</button>
     <button class="filter_btn" (click)="getBusinessList('Taxation')">Taxation</button>
   </div>
@@ -19,17 +24,17 @@
     <div class="social-card" *ngFor="let list of businessList">
       <div class="top-wrap">
         <div class="chip-badge">
-          {{list?.businessName}}Google
+          {{list?.businessName}}
         </div>
       </div>
       <div class="info-wrapper">
         <div class="item-wrap">
           <h3 class="info-title">Category</h3>
-          <p class="info-para">asdfadsf{{list.category}}</p>
+          <p class="info-para">{{list.category}}</p>
         </div>
         <div class="item-wrap">
           <h3 class="info-title">Description</h3>
-          <p class="info-para">asdfdsaf{{list.description}}</p>
+          <p class="info-para">{{list.description}}</p>
         </div>
       </div>
       <span class="circle1"></span>
