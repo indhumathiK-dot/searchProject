@@ -2,7 +2,7 @@
   <h1 class="head">Find the answers to your questions on <br> <span>your assets and their taxation</span></h1>
   <form [formGroup]="searchForm">
   <div class="search-hero">
-    <input class="form-control" type="text" name="search" formControlName="search" autocomplete="off"
+    <input class="form-control" type="text" name="search" formControlName="search" autocomplete="on"
            placeholder="Start searching for a hero by id or name or country" (keyup)="getBusinessList('')">
     <button class="button" (click)="getBusinessList('')">Search</button>
   </div>
@@ -15,24 +15,25 @@
     <button class="filter_btn" (click)="getBusinessList('Immovable')">Immovable</button>
     <button class="filter_btn" (click)="getBusinessList('Taxation')">Taxation</button>
   </div>
-
-  <div>
-    <mat-list #ticketsItemsList class="">
-      <mat-list-item *ngFor="let list of businessList">
-        <h3 matLine>
-          <mat-chip-list >
-            <mat-chip selected mat-raised-button>
-              <a style="color: #0B7641" >{{list?.businessName}}</a></mat-chip>
-            <div>{{list.category}}</div>
-            <div>{{list.description}}</div>
-          </mat-chip-list>
-        </h3>
-      </mat-list-item>
-    </mat-list>
+  <div #ticketsItemsList class="social-wrapper">
+    <div class="social-card" *ngFor="let list of businessList">
+      <div class="top-wrap">
+        <div class="chip-badge">
+          {{list?.businessName}}Google
+        </div>
+      </div>
+      <div class="info-wrapper">
+        <div class="item-wrap">
+          <h3 class="info-title">Category</h3>
+          <p class="info-para">asdfadsf{{list.category}}</p>
+        </div>
+        <div class="item-wrap">
+          <h3 class="info-title">Description</h3>
+          <p class="info-para">asdfdsaf{{list.description}}</p>
+        </div>
+      </div>
+      <span class="circle1"></span>
+      <span class="circle2"></span>
+    </div>
   </div>
 </div>
-
-
-
-
-
