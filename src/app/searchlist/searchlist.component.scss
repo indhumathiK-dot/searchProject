@@ -61,5 +61,108 @@
   cursor: pointer;
   border-radius: 55px;
   margin-left: 20px;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+
+    &:hover {
+      background-color:  rgb(157, 0, 248);
+      color: #fff;
+    }
   }
 }
+.gridbox{
+  display: grid;
+}
+
+.social-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  padding: 20px 25px;
+  text-align: left;
+
+  .social-card {
+    display: block;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 3px;
+    height: auto;
+    position: relative;
+    word-break: break-word;
+    text-overflow: ellipsis;
+    width: calc(100% - 20px);
+    margin-bottom: 20px;
+    box-shadow: 0 0 30px 0 #523f690d;
+    overflow: hidden;
+
+      h3.info-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: #181c32;
+        margin-bottom: 10px;
+      }
+
+      p.info-para {
+        font-size: 14px;
+        color: #3f4254;
+      }
+      
+      .item-wrap {
+        display: block;
+       width: 50%;
+      }
+      .top-wrap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .chip-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #9d00f8;
+        padding: 7px 25px;
+        border-radius: 100px;
+        font-size: 15px;
+        min-height: 40px;
+    }
+
+    span.circle1 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 100px;
+      background-color: #9d00f8;
+      opacity: 0.1;
+      position: absolute;
+      top: -30px;
+      right: 0;
+  }
+  
+  span.circle2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    background-color:#9d00f8;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    right: -30px;
+      /* display: none; */
+  }
+  
+  .info-wrapper {
+      display: flex;
+  }
+      
+  }
+}
+
